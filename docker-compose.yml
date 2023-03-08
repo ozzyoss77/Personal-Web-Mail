@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  poste:
+    image: analogic/poste.io
+    restart: always
+    network_mode: "host"
+    hostname: mail.cristianriverin.com
+    expose:
+      - 25
+      - 80
+      - 443
+      - 110
+      - 143
+      - 465
+      - 587
+      - 993
+      - 995
+    volumes:
+      - /home/ubuntu/data-mail:/data
+    environment:
+      - HTTPS=ON
+      - TZ=America/La Paz
