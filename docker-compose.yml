@@ -1,15 +1,15 @@
 version: '3.9'
 
 services:
-  poste:
+  mail-server:
     image: analogic/poste.io
+    container_name: mail-server.cristianriverin.com
     restart: always
     network_mode: "host"
-    hostname: mail.cristianriverin.com
     expose:
       - 25
-      - 80
-      - 443
+      - 8181
+      - 4443
       - 110
       - 143
       - 465
@@ -17,7 +17,9 @@ services:
       - 993
       - 995
     volumes:
-      - /home/ubuntu/data-mail:/data
+      - /root/mail-data:/data
     environment:
-      - HTTPS=ON
       - TZ=America/La Paz
+      - h=mail.cristianriverin.com
+      - HTTP_PORT=8181
+      - HTTPS_PORT=4443
