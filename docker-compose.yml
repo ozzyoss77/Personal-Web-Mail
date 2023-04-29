@@ -7,6 +7,8 @@ services:
     container_name: mailserver-cristianriverinDev
     restart: always
     network_mode: "host"
+    extra_hosts:
+      - "mail.cristianriverin.com:45.79.25.159" #==> Direccion del servidor de mail hosting
     expose:
       - "25"
       - "8080"
