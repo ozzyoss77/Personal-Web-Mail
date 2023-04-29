@@ -1,25 +1,27 @@
-version: '3.9'
+version: '3'
 
 services:
-  mail-server:
+
+  mailserver:
     image: analogic/poste.io
-    container_name: mail-server.cristianriverin.com
+    container_name: mailserver-cristianriverinDev
     restart: always
     network_mode: "host"
     expose:
-      - 25
-      - 8181
-      - 4443
-      - 110
-      - 143
-      - 465
-      - 587
-      - 993
-      - 995
-    volumes:
-      - /root/mail-data:/data
+      - "25"
+      - "8080"
+      - "4443"
+      - "110"
+      - "143"
+      - "465"
+      - "587"
+      - "993"
+      - "995"
     environment:
-      - TZ=America/La Paz
-      - h=mail.cristianriverin.com
-      - HTTP_PORT=8181
+      - TZ=America/La_Paz
+      - h=mail.cristianriverin.com #==> Direccion del servidor de mail hosting
+      - HTTP_PORT=8080
       - HTTPS_PORT=4443
+      - DISABLE_CLAMAV=TRUE
+    volumes:
+      - /mnt/mail:/data
