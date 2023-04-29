@@ -24,7 +24,7 @@ services:
       - h=mail.cristianriverin.com #==> Direccion del servidor de mail hosting
       - HTTP_PORT=8080
       - HTTPS_PORT=4443
-      - HHTPS=OFF
+      - HTTPS=OFF
       - DISABLE_CLAMAV=TRUE
     volumes:
       - /var/www/mail:/data
