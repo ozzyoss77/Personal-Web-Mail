@@ -26,4 +26,4 @@ services:
       - HTTPS_PORT=4443
       - DISABLE_CLAMAV=TRUE
     volumes:
-      - /mnt/mail:/data
+      - /var/www/mail:/data
